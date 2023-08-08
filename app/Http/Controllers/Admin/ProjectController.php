@@ -7,28 +7,32 @@ use Illuminate\Http\Request;
 use App\Models\Admin\Project;
 use App\Http\Requests\Admin\ProjectFromRequest;
 use Session;
+use App\Interfaces\Admin\ProjectServiceInterface;
 
 class ProjectController extends Controller
 {
-    public function storeProject(ProjectFromRequest $request){
 
-
+    public function __construct(ProjectServiceInterface $ProjectServiceInterface) {
+        $this->ProjectServiceInterface = $ProjectServiceInterface;       
       
-        $ProjectModel = new Project;
-        $ProjectModel->project_name = $request->project_name; 
-        $ProjectModel->start_date = $request->start; 
-        $ProjectModel->end_date = $request->end;   
-        $ProjectModel->rate = $request->rate;              
-        $ProjectModel->price_type = $request->price;   
-        $ProjectModel->required = $request->require;   
-        $ProjectModel->invoice_time = $request->invoice;   
-        $ProjectModel->priority = $request->priority;   
-        $ProjectModel->message = $request->message; 
-        $ProjectModel->save();   
+    } 
+
+    public function storeProject(ProjectFromRequest $request){
         
+        
+        $data = $this->ProjectServiceInterface->storeProject($request->all());
+
+       if(!empty($data)){
         Session::flash('saveProject','Project is successfully added!');
         return redirect('/forms');  
 
+       }
+       else{
+        Session::flash('notSave','Something went Wrong!');
+        return redirect('/forms');  
+       }
+        
+       
 
     }
 

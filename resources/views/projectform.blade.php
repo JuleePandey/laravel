@@ -29,6 +29,8 @@
                 <div class="card-body">
                     <div class="row">
                     <div id="flasMesage"><h5 class="text-success">@if(Session::has('saveProject')){{ Session::get('saveProject') }} @endif</h5></div>
+                    <div id="flasMesage"><h5 class="text-danger">@if(Session::has('notsaveProject')){{ Session::get('notsaveProject') }} @endif</h5></div>
+
                         <div class="col-lg-12">
                             <form method="POST" action="{{url('/storeprojectforms')}}" enctype="multipart/form-data">
                                 @csrf

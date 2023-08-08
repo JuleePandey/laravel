@@ -30,7 +30,9 @@
                     <div class="row">
 
                     <div id="flasMesage"><h5 class="text-success">@if(Session::has('saveProject')){{ Session::get('saveProject') }} @endif</h5></div>
+                    <div id="flasMesage"><h5 class="text-danger">@if(Session::has('notSave')){{ Session::get('notSave') }} @endif</h5></div>
       
+                    
                         <div class="col-lg-12">
                             <form method="POST" action="{{url('/storeproject')}}" enctype="multipart/form-data">
                             @csrf

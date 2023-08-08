@@ -35,6 +35,7 @@ class menuController extends Controller
         return view('users');
     } 
     public function getcreate(){
+    
         return view('create');
     } 
 
