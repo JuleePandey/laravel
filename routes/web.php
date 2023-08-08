@@ -41,6 +41,7 @@ Route::get('/lists',[ProjectformController::class, 'getlists']);
 Route::get('/details',[RegisterformController::class, 'getdetails']);
 Route::get('/edit',[RegisterformController::class, 'getedit']);
 Route::post('/storeupdate',[RegisterformController::class, 'update']);
+Route::get('/delete',[RegisterformController::class, 'delete']);
 
 
 

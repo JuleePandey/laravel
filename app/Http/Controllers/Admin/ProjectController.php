@@ -33,7 +33,7 @@ class ProjectController extends Controller
     }
 
     public function getlist(){ 
-        //      (model which is connected to data base )  ,(database column)                                                                (this symble is use to add other function)
+        //      (model (Project) which is connected to data base )  ,(database column)                                                                (this symble is use to add other function)
         $data = Project::select('id','project_name','start_date','end_date','rate','price_type','required','invoice_time','priority','message')->get();
                                                                                                                                                  //(this function use to get database)              
         return view('list',compact('data'));

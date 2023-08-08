@@ -14,6 +14,7 @@ class RegisterformController extends Controller
 {                // (function name create 
                  //inside route  )  (request name ) which was create by using php commond 
     public function registerForm(Projectregisterform $request){
+                     //   (object)
         $Registerform = new Registerform;
         $Registerform->name = $request->name; 
         $Registerform->location= $request->location; 
@@ -43,7 +44,7 @@ class RegisterformController extends Controller
 
        public function getedit(Request $request){
             $id = $_GET['id'];
-
+            // update query in laravel
             $data=Registerform::select('id','name','location','country','rate','price','email','message')->where('id',$id)->first();
        
         return view('editDetail',compact('data'));
@@ -61,10 +62,21 @@ class RegisterformController extends Controller
                 'message' => $request->message
             ];
         Registerform::where('id',$request->fromId)->update($updateArray);
+
+        //alternate method
         
        // $id = $request->fromId;
       //  Registerform::where('id',$id)->update($request->except(['_token','fromId','submit']));
 
         return redirect('/details'); 
        }
+
+       public function delete(Request $request){
+        $id = $_GET['id'];
+
+        Registerform::where('id',$id)->delete();// update query in laravel
+       
+        return redirect('/details'); 
+   }
+
 }

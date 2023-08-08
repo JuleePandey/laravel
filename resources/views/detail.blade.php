@@ -27,11 +27,11 @@
                                 <th>Email :</th>
                                 <th>Message :</th>
                                 <th colspan="2">Action</th>
+                              
                          
                             </tr>
                         </thead>
-                        <tbody>
-                     
+                        <tbody>                     
                         @foreach ($data as $list) 
                            <tr>
                             <td>{{$list->id}} </td>
@@ -43,7 +43,9 @@
                             <td>{{$list->email}}</td>
                             <td>{{$list->message}}</td>
                             <td>
-                                <a href=" {{ url('./edit/?id='.$list->id) }}" id="edit"><button>Edit</button></a></td>
+                                <a href=" {{ url('./edit/?id='.$list->id) }}" id="edit"><button>Edit</button></a>
+                                <a href=" {{ url('./delete/?id='.$list->id) }}" id="delete"><button>Delete</button></a></td>
+                               
                             </tr>
                        @endforeach
                         </tbody>

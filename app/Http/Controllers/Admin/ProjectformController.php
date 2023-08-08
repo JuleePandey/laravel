@@ -12,7 +12,7 @@ use Session;
 class ProjectformController extends Controller
 {
     public function Projectform(ProjectFromRequest $request){
-     //   dd($request->all());
+     //  use to check  dd($request->all());
         $Projecform = new Projecform;// insert query for laravel 
 
        //        (table_colun  )      (form value)
@@ -28,7 +28,7 @@ class ProjectformController extends Controller
         $Projecform->save();  
         
         
-        Session::flash('saveProject','Project is successfully added!');
+        Session::flash('saveProject','Project is successfully added!');// message 
         return redirect('/projectforms'); 
         //       ( page url where we will go)       
 }
