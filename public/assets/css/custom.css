@@ -1,0 +1,7 @@
+.left-sidebar .brand .logo .logo-lg {
+  height: 30px;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  display: none;
+}/*# sourceMappingURL=custom.css.map */
